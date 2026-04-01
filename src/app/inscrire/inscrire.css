@@ -1,0 +1,277 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+/* ── Wrapper ── */
+.inscription-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px;
+  font-family: 'Nunito', sans-serif;
+  background-color: #F0F4F8;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(99, 179, 237, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(154, 117, 222, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(237, 137, 54, 0.08) 0%, transparent 60%);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.inscription-wrapper::before,
+.inscription-wrapper::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.07;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.inscription-wrapper::before {
+  width: 500px;
+  height: 500px;
+  background: #4A90D9;
+  top: -150px;
+  left: -150px;
+}
+
+.inscription-wrapper::after {
+  width: 400px;
+  height: 400px;
+  background: #9A75DE;
+  bottom: -120px;
+  right: -120px;
+}
+
+/* ── Card ── */
+.inscription-card {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  padding: 40px 38px;
+  border-radius: 28px;
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.04),
+    0 20px 50px rgba(74, 144, 217, 0.12),
+    0 0 0 1px rgba(255,255,255,0.9);
+  width: 460px;
+  max-width: 96%;
+  text-align: center;
+  animation: cardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(28px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.inscription-card::before {
+  content: '🌸';
+  display: block;
+  font-size: 44px;
+  margin-bottom: 10px;
+  animation: bounceIn 0.7s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes bounceIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Titre ── */
+.form-title {
+  margin: 0 0 28px 0;
+  font-size: 26px;
+  font-weight: 900;
+  color: #2D3748;
+  letter-spacing: -0.4px;
+}
+
+.form-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(90deg, #4A90D9, #7B68EE);
+  border-radius: 4px;
+  margin: 8px auto 0;
+}
+
+/* ── Form ── */
+.form-container {
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #4A5568;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Inputs ── */
+.form-input {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 2px solid #E2E8F0;
+  font-size: 15px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  color: #2D3748;
+  background: #F7FAFC;
+  transition: all 0.25s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder {
+  color: #A0AEC0;
+  font-weight: 500;
+}
+
+.form-input:focus {
+  border-color: #4A90D9;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(74, 144, 217, 0.12);
+  transform: translateY(-1px);
+}
+
+/* ── Erreurs ── */
+.error {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background: #FFF5F5;
+  border-left: 3px solid #FC8181;
+  border-radius: 8px;
+  animation: shake 0.35s ease;
+}
+
+.error small {
+  color: #C53030;
+  font-size: 12px;
+  font-weight: 700;
+  display: block;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-5px); }
+  75%       { transform: translateX(5px); }
+}
+
+/* ── Bouton submit ── */
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #4A90D9 0%, #7B68EE 100%);
+  border: none;
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(74, 144, 217, 0.35);
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: linear-gradient(135deg, #357ABD 0%, #6A5ACD 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(74, 144, 217, 0.45);
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: translateY(0px);
+  box-shadow: 0 4px 12px rgba(74, 144, 217, 0.3);
+}
+
+.btn-submit:disabled {
+  background: linear-gradient(135deg, #90CAF9, #B39DDB);
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Messages ── */
+.success-message {
+  margin-top: 16px;
+  color: #2E7D32;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 16px;
+  background: #F1F8E9;
+  border-radius: 12px;
+  border-left: 4px solid #81C784;
+  text-align: center;
+}
+
+.error-message {
+  margin-top: 16px;
+  color: #C53030;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 16px;
+  background: #FFF5F5;
+  border-radius: 12px;
+  border-left: 4px solid #FC8181;
+  text-align: center;
+  animation: shake 0.35s ease;
+}
+
+/* ── Lien login ── */
+.login-link {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: #718096;
+  font-weight: 600;
+}
+
+.login-link a,
+.login-link button {
+  color: #4A90D9;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.login-link a:hover,
+.login-link button:hover {
+  color: #357ABD;
+  text-decoration: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .inscription-card {
+    padding: 32px 22px;
+  }
+
+  .form-title {
+    font-size: 22px;
+  }
+
+  .form-input,
+  .btn-submit {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="admin-wrapper">
+  <!-- HEADER avec Logout -->
+  <div class="admin-header">
+    <button class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+  </div>
+
+  <!-- Container principal -->
+  <div class="admin-container">
+    <div class="admin-card">
+      <h2>Page Admin</h2>
+
+      <div class="admin-buttons">
+        <button routerLink="/admin/parents">
+          Afficher tous les parents
+        </button>
+
+        <button routerLink="/admin/bebes">
+          Afficher tous les bébés
+        </button>
+
+        <button routerLink="/admin/admins">
+          Profil
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

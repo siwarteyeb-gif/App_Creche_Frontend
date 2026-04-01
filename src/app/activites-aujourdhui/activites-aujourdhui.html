@@ -1,0 +1,43 @@
+<div [class]="isAdmin ? 'activites-wrapper admin-theme' : 'activites-wrapper user-theme'">
+
+  <header class="header">
+    <h2 class="header-title">Activités du jour pour le bébé {{ bebeNom }}</h2>
+    <div class="header-buttons">
+      <button class="btn btn-logout" (click)="logout()">Logout</button>
+      <button class="btn btn-retour" (click)="retourListe()">Retour à la liste</button>
+    </div>
+  </header>
+
+  <div *ngIf="loading" class="loading">Chargement...</div>
+
+  <div class="table-container" *ngIf="!loading && activites.length > 0; else noActivities">
+    <table class="activites-table" border="0">
+      <thead>
+        <tr>
+          <th>Type d'activité</th>
+          <th>Date</th>
+          <th>Temps</th>
+          <th>Notes</th>
+          <th *ngIf="isAdmin">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let act of activites">
+          <td>{{ act.typeActivite }}</td>
+          <td>{{ act.date }}</td>
+          <td>{{ act.temps }}</td>
+          <td>{{ act.notes }}</td>
+          <td *ngIf="isAdmin && act.id">
+            <button class="btn btn-modifier" (click)="modifierActivite(act.id)">Modifier</button>
+            <button class="btn btn-supprimer" (click)="supprimerActivite(act.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noActivities>
+    <p class="no-activities">Aucune activité aujourd'hui pour ce bébé.</p>
+  </ng-template>
+
+</div>

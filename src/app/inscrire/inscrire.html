@@ -1,0 +1,102 @@
+<div class="inscription-wrapper">
+  <div class="inscription-card">
+<h2 class="form-title">Inscription</h2>
+
+<form #inscrireForm="ngForm" (ngSubmit)="inscrire()" class="form-container">
+
+  <!-- Nom -->
+  <label class="form-label">Nom:</label>
+  <input
+    type="text"
+    name="nom"
+    [(ngModel)]="parent.nom"
+    #nom="ngModel"
+    required
+    minlength="5"
+    placeholder="Nom"
+    class="form-input"
+  >
+  <div *ngIf="nom.invalid && nom.touched" class="error">
+    <small *ngIf="nom.errors?.['required']">Le nom est obligatoire</small>
+    <small *ngIf="nom.errors?.['minlength']">Le nom doit avoir au moins 5 caractères</small>
+  </div>
+  <br>
+
+  <!-- Prénom -->
+  <label class="form-label">Prénom:</label>
+  <input
+    type="text"
+    name="prenom"
+    [(ngModel)]="parent.prenom"
+    #prenom="ngModel"
+    required
+    minlength="5"
+    placeholder="Prénom"
+    class="form-input"
+  >
+  <div *ngIf="prenom.invalid && prenom.touched" class="error">
+    <small *ngIf="prenom.errors?.['required']">Le prénom est obligatoire</small>
+    <small *ngIf="prenom.errors?.['minlength']">Le prénom doit avoir au moins 5 caractères</small>
+  </div>
+  <br>
+
+  <label class="form-label">Téléphone:</label>
+  <input 
+    type="text" 
+    name="telephone" 
+    [(ngModel)]="parent.telephone" 
+    #telephone="ngModel"
+    required
+    minlength="8"
+    maxlength="15"
+    pattern="[0-9]*"
+    placeholder="Téléphone"
+    class="form-input"
+  >
+  <div *ngIf="telephone.invalid && telephone.touched" class="error">
+    <small *ngIf="telephone.errors?.['required']">Le téléphone est obligatoire</small>
+    <small *ngIf="telephone.errors?.['minlength']">Le téléphone doit avoir au moins 8 chiffres</small>
+    <small *ngIf="telephone.errors?.['pattern']">Seulement les chiffres sont autorisés</small>
+  </div>
+  <br>
+
+  <label class="form-label">Email:</label>
+  <input
+    type="email"
+    name="email"
+    [(ngModel)]="parent.email"
+    #email="ngModel"
+    required
+    email
+    placeholder="Email"
+    class="form-input"
+  >
+  <div *ngIf="email.invalid && email.touched" class="error">
+    <small *ngIf="email.errors?.['required']">L'email est obligatoire</small>
+    <small *ngIf="email.errors?.['email']">Format d'email invalide</small>
+  </div>
+  <br>
+
+  <label class="form-label">Mot de passe:</label>
+  <input
+    type="password"
+    name="password"
+    [(ngModel)]="parent.password"
+    #password="ngModel"
+    required
+    minlength="6"
+    placeholder="Mot de passe"
+    class="form-input"
+  >
+  <div *ngIf="password.invalid && password.touched" class="error">
+    <small *ngIf="password.errors?.['required']">Le mot de passe est obligatoire</small>
+    <small *ngIf="password.errors?.['minlength']">Le mot de passe doit avoir au moins 6 caractères</small>
+  </div>
+  <br>
+
+  <button type="submit" [disabled]="inscrireForm.invalid" class="btn-submit">S'inscrire</button>
+</form>
+
+<p *ngIf="message" class="success-message">{{ message }}</p>
+<p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </div></div>

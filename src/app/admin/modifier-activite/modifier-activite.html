@@ -1,0 +1,61 @@
+<div class="modifier-activite-wrapper">
+
+  <header class="modifier-activite-header">
+    <div class="header-content">
+
+      <div class="header-left">
+        <button
+          class="btn btn-back"
+          [routerLink]="['/admin/activites-aujourdhui', bebeId]">
+          Retour
+        </button>
+      </div>
+
+      <div class="header-center">
+        <h2 class="header-title">Modifier activité</h2>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn btn-logout" (click)="logout()">
+          Logout
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="modifier-activite-container">
+    <div class="form-container">
+
+      <div *ngIf="loading">Chargement...</div>
+
+      <form *ngIf="!loading">
+        <div class="form-group">
+          <label>Type activité</label>
+          <input
+            type="text"
+            [(ngModel)]="typeActivite"
+            name="typeActivite">
+        </div>
+
+        <div class="form-group">
+          <label>Notes</label>
+          <textarea
+            [(ngModel)]="notes"
+            name="notes"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button
+            type="button"
+            class="btn-submit"
+            (click)="enregistrer()">
+            Modifier
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+</div>

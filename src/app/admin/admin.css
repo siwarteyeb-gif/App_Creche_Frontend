@@ -1,0 +1,290 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+.admin-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 16px;
+  box-sizing: border-box;
+  position: relative;
+  background: linear-gradient(-45deg, #0F172A, #1E1B4B, #0F2744, #1a1a2e);
+  background-size: 400% 400%;
+  animation: bgShift 10s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes bgShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Cercles décoratifs animés */
+.admin-wrapper::before,
+.admin-wrapper::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.admin-wrapper::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+  top: -200px;
+  left: -150px;
+  animation: float1 8s ease-in-out infinite;
+}
+
+.admin-wrapper::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12), transparent 70%);
+  bottom: -150px;
+  right: -100px;
+  animation: float2 10s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(40px, 30px) scale(1.1); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-30px, -40px) scale(1.08); }
+}
+
+/* =========================================================
+   LOGOUT BTN
+========================================================= */
+.admin-header {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  z-index: 10;
+}
+
+.logout-btn {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.8);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.logout-btn::after,
+.logout-btn::before { display: none !important; }
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+.admin-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   CARD — Glassmorphism
+========================================================= */
+.admin-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 50px 44px;
+  width: 500px;
+  max-width: 92%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  text-align: center;
+  animation: cardIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* =========================================================
+   TITRE
+========================================================= */
+h2 {
+  margin: 0 0 36px 0;
+  font-size: 30px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 18px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #60A5FA, #A78BFA);
+  border-radius: 4px;
+  animation: lineGrow 0.8s 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes lineGrow {
+  from { width: 0; opacity: 0; }
+  to   { width: 60px; opacity: 1; }
+}
+
+/* =========================================================
+   BOUTONS
+========================================================= */
+.admin-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.admin-buttons button {
+  width: 100%;
+  padding: 16px 22px;
+  padding-right: 48px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  backdrop-filter: blur(10px);
+  animation: btnIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.admin-buttons button:nth-child(1) { animation-delay: 0.1s; }
+.admin-buttons button:nth-child(2) { animation-delay: 0.2s; }
+.admin-buttons button:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes btnIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Flèche → */
+.admin-buttons button::after {
+  content: '→';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  opacity: 0.6;
+  transition: all 0.25s ease;
+}
+
+.admin-buttons button:hover::after {
+  right: 14px;
+  opacity: 1;
+}
+
+/* Shine effect */
+.admin-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.admin-buttons button:hover::before {
+  left: 150%;
+}
+
+/* Parents */
+button[routerLink="/admin/parents"] {
+  background: linear-gradient(135deg, rgba(59,130,246,0.6), rgba(99,102,241,0.6));
+  box-shadow: 0 4px 15px rgba(59,130,246,0.2);
+}
+
+button[routerLink="/admin/parents"]:hover {
+  background: linear-gradient(135deg, rgba(59,130,246,0.85), rgba(99,102,241,0.85));
+  transform: translateY(-2px) translateX(4px);
+  box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+}
+
+/* Bébés */
+button[routerLink="/admin/bebes"] {
+  background: linear-gradient(135deg, rgba(139,92,246,0.6), rgba(167,139,250,0.6));
+  box-shadow: 0 4px 15px rgba(139,92,246,0.2);
+}
+
+button[routerLink="/admin/bebes"]:hover {
+  background: linear-gradient(135deg, rgba(139,92,246,0.85), rgba(167,139,250,0.85));
+  transform: translateY(-2px) translateX(4px);
+  box-shadow: 0 8px 24px rgba(139,92,246,0.35);
+}
+
+/* Profil */
+button[routerLink="/admin/admins"] {
+  background: linear-gradient(135deg, rgba(20,184,166,0.6), rgba(6,182,212,0.6));
+  box-shadow: 0 4px 15px rgba(20,184,166,0.2);
+}
+
+button[routerLink="/admin/admins"]:hover {
+  background: linear-gradient(135deg, rgba(20,184,166,0.85), rgba(6,182,212,0.85));
+  transform: translateY(-2px) translateX(4px);
+  box-shadow: 0 8px 24px rgba(20,184,166,0.35);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 480px) {
+  .admin-card { padding: 36px 22px; }
+  h2 { font-size: 24px; }
+  .admin-buttons button { font-size: 13px; padding: 13px 16px; padding-right: 38px; }
+}

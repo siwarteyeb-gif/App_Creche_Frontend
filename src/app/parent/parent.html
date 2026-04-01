@@ -1,0 +1,43 @@
+<div class="header">
+  <h2>Liste des bébés</h2>
+  <div class="header-buttons">
+    <button class="btn-profile" routerLink="/modifier-profil">Modifier Profil</button>
+    <button class="btn-logout" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="bebes-wrapper">
+  <div class="bebes-card">
+
+    <table *ngIf="bebesList.length > 0; else noBebes" class="bebes-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Date de naissance</th>
+          <th>Activités</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bebe of bebesList">
+          <td>{{ bebe.nom }}</td>
+          <td>{{ bebe.prenom }}</td>
+          <td>{{ bebe.dateNais }}</td>
+          <td>
+            <button class="btn-activite-aujourdhui" (click)="goToActivitesAujourdhui(bebe.id!)">Aujourd’hui</button>
+            <button class="btn-activite-maintenant" (click)="goToActiviteMaintenant(bebe.id!)">Maintenant</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noBebes>
+      <p class="no-bebes">Aucun bébé trouvé.</p>
+    </ng-template>
+  </div>
+</div>
+<footer class="footer">
+  <span>Nom de la Crèche: <strong>Creche Les Petits</strong></span>
+  <span>Téléphone: <a href="tel:+21675345678">+216 12 345 678</a></span>
+  <span>Adresse: 123 Rue des Fleurs, Tunis, Tunisie</span>
+</footer>

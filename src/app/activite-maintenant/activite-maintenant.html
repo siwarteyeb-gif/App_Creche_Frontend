@@ -1,0 +1,31 @@
+<div class="header">
+  <h2>Activité en cours</h2>
+
+  <div class="header-buttons">
+    <button class="btn-retour" routerLink="/parent">Retour à la liste
+    </button>
+
+    <button class="btn-logout" (click)="logout()">
+      Logout
+    </button>
+  </div>
+</div>
+
+<div class="activite-wrapper">
+  <div class="activite-card">
+    <h2>Que fait le bébé ?</h2>
+
+    <div *ngIf="activite; else noActivity">
+      <p><strong>Type :</strong> {{ activite?.typeActivite }}</p>
+      <p><strong>Date :</strong> {{ activite?.date }}</p>
+      <p><strong>Temps :</strong> {{ activite?.temps }}</p>
+      <p><strong>Notes :</strong> {{ activite?.notes }}</p>
+    </div>
+
+    <ng-template #noActivity>
+      <p class="no-activity">
+        Aucune activité en cours pour ce bébé.
+      </p>
+    </ng-template>
+  </div>
+</div>

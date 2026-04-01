@@ -1,0 +1,28 @@
+<h2>Liste de toutes les activités</h2>
+
+<button routerLink="/admin">← Retour au dashboard</button>
+
+<div *ngIf="errorMessage" style="color:red">{{ errorMessage }}</div>
+
+<table border="1" *ngIf="activites.length > 0; else noActivites">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Temps</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let act of activites">
+      <td>{{ act.typeActivite }}</td>
+      <td>{{ act.date }}</td>
+      <td>{{ act.temps }}</td>
+      <td>{{ act.notes }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noActivites>
+  <p>Aucune activité trouvée.</p>
+</ng-template>

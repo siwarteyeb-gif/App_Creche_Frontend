@@ -1,0 +1,277 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+/* ── Reset ── */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Nunito', sans-serif;
+  background: #F0F4F8;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+.header {
+  width: 100%;
+  padding: 16px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(74, 144, 217, 0.12);
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 3px solid #4A90D9;
+  box-sizing: border-box;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  color: #2D3748;
+  letter-spacing: -0.4px;
+}
+
+.header h2::after {
+  content: ' 👶';
+  font-size: 20px;
+}
+
+/* ── Header buttons ── */
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-profile {
+  padding: 9px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 10px;
+  border: 2px solid #4A90D9;
+  cursor: pointer;
+  background: transparent;
+  color: #4A90D9;
+  transition: all 0.25s ease;
+}
+
+.btn-profile:hover {
+  background: #4A90D9;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 144, 217, 0.3);
+}
+
+.btn-logout {
+  padding: 9px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4A90D9, #7B68EE);
+  color: #ffffff;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(74, 144, 217, 0.3);
+}
+
+.btn-logout:hover {
+  background: linear-gradient(135deg, #357ABD, #6A5ACD);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 144, 217, 0.4);
+}
+
+/* =========================================================
+   WRAPPER
+========================================================= */
+.bebes-wrapper {
+  min-height: 100vh;
+  padding: 100px 32px 90px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #F0F4F8;
+  background-image:
+    radial-gradient(circle at 15% 30%, rgba(99, 179, 237, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 85% 70%, rgba(154, 117, 222, 0.12) 0%, transparent 50%);
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+.bebes-card {
+  background: #ffffff;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 72vh;
+  padding: 28px;
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.04),
+    0 20px 50px rgba(74, 144, 217, 0.12);
+  overflow-y: auto;
+  border: 1px solid rgba(74, 144, 217, 0.1);
+  box-sizing: border-box;
+}
+
+/* Scrollbar */
+.bebes-card::-webkit-scrollbar { width: 8px; }
+.bebes-card::-webkit-scrollbar-track { background: #F7FAFC; border-radius: 10px; }
+.bebes-card::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4A90D9, #7B68EE); border-radius: 10px; }
+.bebes-card::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #357ABD, #6A5ACD); }
+
+/* =========================================================
+   TABLE
+========================================================= */
+.bebes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  font-family: 'Nunito', sans-serif;
+  color: #2D3748;
+}
+
+.bebes-table th,
+.bebes-table td {
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid #EDF2F7;
+}
+
+.bebes-table thead th {
+  background: linear-gradient(135deg, #4A90D9, #7B68EE);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.bebes-table thead th:first-child { border-radius: 12px 0 0 0; }
+.bebes-table thead th:last-child  { border-radius: 0 12px 0 0; }
+
+.bebes-table tbody tr:nth-child(even) { background: rgba(74, 144, 217, 0.04); }
+.bebes-table tbody tr:nth-child(odd)  { background: #ffffff; }
+
+.bebes-table tbody tr:hover {
+  background: rgba(74, 144, 217, 0.08);
+  transition: background 0.2s ease;
+}
+
+.bebes-table td {
+  font-weight: 600;
+  color: #4A5568;
+}
+
+/* =========================================================
+   BOUTONS ACTIVITÉS
+========================================================= */
+.btn-activite-aujourdhui {
+  background: linear-gradient(135deg, #4A90D9, #63B3ED);
+  color: #fff;
+  padding: 8px 16px;
+  margin: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(74, 144, 217, 0.25);
+  transition: all 0.25s ease;
+}
+
+.btn-activite-aujourdhui:hover {
+  background: linear-gradient(135deg, #357ABD, #4A90D9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 144, 217, 0.4);
+}
+
+.btn-activite-maintenant {
+  background: linear-gradient(135deg, #7B68EE, #9A8FFF);
+  color: #fff;
+  padding: 8px 16px;
+  margin: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(123, 104, 238, 0.25);
+  transition: all 0.25s ease;
+}
+
+.btn-activite-maintenant:hover {
+  background: linear-gradient(135deg, #6A5ACD, #7B68EE);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(123, 104, 238, 0.4);
+}
+
+/* =========================================================
+   MESSAGE VIDE
+========================================================= */
+.no-bebes {
+  text-align: center;
+  color: #7B68EE;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 25px;
+  padding: 16px;
+  background: rgba(123, 104, 238, 0.07);
+  border-radius: 12px;
+  border-left: 4px solid #7B68EE;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer {
+  width: 100%;
+  padding: 16px 36px;
+  background: #ffffff;
+  text-align: center;
+  color: #718096;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 -4px 16px rgba(74, 144, 217, 0.1);
+  border-top: 3px solid #4A90D9;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.footer span { display: inline; margin: 0 12px; }
+.footer a { color: #4A90D9; text-decoration: none; font-weight: 800; transition: all 0.2s ease; }
+.footer a:hover { color: #357ABD; text-decoration: underline; }
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 768px) {
+  .header { padding: 14px 20px; }
+  .header h2 { font-size: 18px; }
+  .bebes-wrapper { padding: 90px 16px 80px; }
+  .bebes-card { padding: 18px; max-height: 65vh; }
+  .bebes-table th, .bebes-table td { padding: 10px 8px; font-size: 13px; }
+  .btn-activite-aujourdhui, .btn-activite-maintenant { padding: 6px 10px; font-size: 12px; }
+  .footer { padding: 12px 16px; font-size: 12px; }
+  .footer span { display: block; margin: 3px 0; }
+}

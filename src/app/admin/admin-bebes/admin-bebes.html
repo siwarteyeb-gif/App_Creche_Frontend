@@ -1,0 +1,65 @@
+<div class="bebes-wrapper">
+  <header class="bebes-header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="btn btn-back" routerLink="/admin/parents">
+          Retour à la liste des parents
+        </button>
+      </div>
+      <h2 class="header-title">Liste de tous les bébés</h2>
+      <div class="header-actions">
+        <button class="btn btn-logout" (click)="logout()">
+          Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="bebes-container">
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <div class="table-container" *ngIf="bebes.length > 0; else noBebes">
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de naissance</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bebe of bebes">
+            <td>{{ bebe.nom }}</td>
+            <td>{{ bebe.prenom }}</td>
+            <td>{{ bebe.dateNais }}</td>
+            <td>
+              <div class="actions-cell">
+                <button class="btn-table btn-edit" (click)="modifierBebe(bebe.id)">
+                  Modifier
+                </button>
+                <button class="btn-table btn-delete" (click)="supprimerBebe(bebe.id, bebe.nom, bebe.prenom)">
+                  Supprimer
+                </button>
+                <button class="btn-table btn-view-activities" (click)="voirActivitesAujourdhuiAdmin(bebe.id)">
+                 Activités Aujourd'hui
+                </button>
+                <button class="btn-table btn-add" [routerLink]="['/ajouter-activite', bebe.id]">
+                  Ajouter activité
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ng-template #noBebes>
+      <div class="no-bebes">
+        Aucun bébé trouvé.
+      </div>
+    </ng-template>
+  </div>
+</div>

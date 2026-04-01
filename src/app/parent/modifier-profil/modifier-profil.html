@@ -1,0 +1,38 @@
+<div [class]="isAdminEdit ? 'header admin-header' : 'header'">
+  <h2>Modifier profil</h2>
+  <div class="header-buttons">
+    <button class="logout-btn" (click)="logout()">Logout</button>
+    <button class="return-btn" [routerLink]="isAdminEdit ? '/admin/parents' : '/parent'">Retour à la liste</button>
+  </div>
+</div>
+
+<div *ngIf="parent; else loading" [class]="isAdminEdit ? 'modifier-wrapper admin-theme' : 'modifier-wrapper user-theme'">
+  <div class="modifier-card">
+    <form (ngSubmit)="modifierProfil()">
+
+      <label>Nom:</label>
+      <input type="text" [(ngModel)]="parent.nom" name="nom" required>
+
+      <label>Prénom:</label>
+      <input type="text" [(ngModel)]="parent.prenom" name="prenom" required>
+
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="parent.email" name="email" required>
+
+      <label>Téléphone:</label>
+      <input type="text" [(ngModel)]="parent.telephone" name="telephone">
+
+      <label>Mot de passe (laisser vide si pas de changement):</label>
+      <input type="password" [(ngModel)]="parent.password" name="password">
+
+      <button type="submit">Modifier</button>
+    </form>
+
+    <p *ngIf="message" class="message-success">{{ message }}</p>
+    <p *ngIf="errorMessage" class="message-error">{{ errorMessage }}</p>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p style="text-align:center; margin-top:50px;">Chargement des informations...</p>
+</ng-template>

@@ -1,0 +1,57 @@
+<div class="modifier-bebe-wrapper">
+
+  <header class="modifier-bebe-header">
+    <div class="header-content">
+
+      <div class="header-left">
+        <button class="btn btn-back" routerLink="/admin/bebes">
+          Retour à la liste
+        </button>
+      </div>
+
+      <h2 class="header-title">Modifier Bébé</h2>
+
+      <div class="header-actions">
+        <button class="btn btn-logout" (click)="logout()">
+          Logout
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- CONTAINER principal -->
+  <div class="modifier-bebe-container">
+    <div class="form-container">
+      <form *ngIf="bebe && bebe.id" (ngSubmit)="saveBebe()">
+
+        <div class="form-group">
+          <label>
+            Nom:
+            <input type="text" [(ngModel)]="bebe.nom" name="nom" required />
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>
+            Prénom:
+            <input type="text" [(ngModel)]="bebe.prenom" name="prenom" required />
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>
+            Date de naissance:
+            <input type="date" [(ngModel)]="bebe.dateNais" name="dateNais" required />
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">Modifier</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>

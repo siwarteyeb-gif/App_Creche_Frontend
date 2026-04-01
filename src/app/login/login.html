@@ -1,0 +1,22 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <h2>Bienvenue à la Crèche</h2>
+
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <form (ngSubmit)="login()">
+      <div class="input-group">
+        <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Mot de passe" [(ngModel)]="password" name="password" required>
+      </div>
+      <button type="submit">Se connecter</button>
+    </form>
+
+    <p>
+      Pas encore de compte ?
+      <button class="signup-btn" routerLink="/inscrire">S’inscrire</button>
+    </p>
+  </div>
+</div>

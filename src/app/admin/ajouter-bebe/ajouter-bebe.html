@@ -1,0 +1,35 @@
+<div class="header">
+  <h2>Ajouter bébé</h2>
+  <div class="header-buttons">
+    <button class="btn-back" routerLink="/admin/parents">Retour</button>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="ajouter-wrapper">
+  <div class="ajouter-card">
+    <h2>Ajouter bébé</h2>
+    <form #bebeForm="ngForm" (ngSubmit)="ajouterBebe(bebeForm)">
+
+      <label>Nom</label>
+      <input type="text" [(ngModel)]="bebe.nom" name="nom" required minlength="4" #nom="ngModel">
+      <div *ngIf="nom.invalid && nom.touched" style="color:red">
+        <div *ngIf="nom.errors?.['required']"> Nom obligatoire</div>
+        <div *ngIf="nom.errors?.['minlength']"> Minimum 4 lettres</div>
+      </div>
+
+      <label>Prénom</label>
+      <input type="text" [(ngModel)]="bebe.prenom" name="prenom" required minlength="5" #prenom="ngModel">
+      <div *ngIf="prenom.invalid && prenom.touched" style="color:red">
+        <div *ngIf="prenom.errors?.['required']"> Prénom obligatoire</div>
+        <div *ngIf="prenom.errors?.['minlength']"> Minimum 5 lettres</div>
+      </div>
+
+      <label>Date de naissance</label>
+      <input type="date" [(ngModel)]="bebe.dateNais" name="dateNais" required #dateNais="ngModel">
+      <div *ngIf="dateNais.invalid && dateNais.touched" style="color:red">Date obligatoire</div>
+
+      <button type="submit" [disabled]="bebeForm.invalid">Ajouter</button>
+    </form>
+  </div>
+</div>

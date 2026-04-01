@@ -1,0 +1,44 @@
+<div class="profil-wrapper">
+  <!-- HEADER avec titre et boutons -->
+  <header class="profil-header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="btn btn-back" routerLink="/admin">
+           Retour au dashboard
+        </button>
+      </div>
+      <h2 class="header-title">Mon Profil</h2>
+      <div class="header-actions">
+        <button class="btn btn-modifier" routerLink="/modifier-profil">
+          Modifier
+        </button>
+        <button class="btn btn-logout" (click)="logout()">
+          Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="profil-container">
+    <div class="profil-card">
+      <div class="profil-info" *ngIf="admin">
+        <p>
+          <strong>Nom:</strong> {{ admin.nom }}
+        </p>
+        <p>
+          <strong>Prénom:</strong> {{ admin.prenom }}
+        </p>
+        <p>
+          <strong>Email:</strong> {{ admin.email }}
+        </p>
+        <p>
+          <strong>Téléphone:</strong> {{ admin.telephone }}
+        </p>
+      </div>
+
+      <p *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </p>
+    </div>
+  </div>
+</div>

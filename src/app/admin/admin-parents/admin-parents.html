@@ -1,0 +1,67 @@
+<div class="parents-wrapper">
+  <header class="parents-header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="btn btn-back" routerLink="/admin">Retour au dashboard
+        </button>
+      </div>
+      <h2 class="header-title">Liste de tous les parents</h2>
+      <div class="header-actions">
+        <button class="btn btn-logout" (click)="logout()">
+          Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="parents-container">
+    <!-- Message d'erreur -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <div class="table-container" *ngIf="parents.length > 0; else noParents">
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let parent of parents">
+            <td>{{ parent.nom }}</td>
+            <td>{{ parent.prenom }}</td>
+            <td>{{ parent.email }}</td>
+            <td>{{ parent.telephone }}</td>
+            <td>
+              <div class="actions-cell">
+                <button class="btn-table btn-edit" [routerLink]="['/modifier-profil', parent.id]">
+                  Modifier
+                </button>
+                <button class="btn-table btn-delete" (click)="supprimerParent(parent.id, parent.nom, parent.prenom)">
+                  Supprimer
+                </button>
+                <button class="btn-table btn-view" (click)="voirBebes(parent.id)">
+                  Voir les bébés
+                </button>
+                <button class="btn-table btn-add" [routerLink]="['/admin/ajouter-bebe', parent.id]">
+                  Ajouter bébé
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ng-template #noParents>
+      <div class="no-parents">
+        Aucun parent trouvé.
+      </div>
+    </ng-template>
+  </div>
+</div>

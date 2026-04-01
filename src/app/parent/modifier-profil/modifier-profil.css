@@ -1,0 +1,364 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   HEADER — USER (défaut)
+========================================================= */
+.header {
+  width: 100%;
+  padding: 16px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(74, 144, 217, 0.12);
+  border-bottom: 3px solid #4A90D9;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+  color: #2D3748;
+  letter-spacing: -0.3px;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.return-btn {
+  padding: 9px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 10px;
+  border: 2px solid #4A90D9;
+  cursor: pointer;
+  background: transparent;
+  color: #4A90D9;
+  transition: all 0.25s ease;
+}
+
+.return-btn:hover {
+  background: #4A90D9;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 144, 217, 0.3);
+}
+
+.logout-btn {
+  padding: 9px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4A90D9, #7B68EE);
+  color: #ffffff;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(74, 144, 217, 0.3);
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #357ABD, #6A5ACD);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 144, 217, 0.4);
+}
+
+/* =========================================================
+   HEADER — ADMIN override
+========================================================= */
+.admin-header {
+  background: #1E293B;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  border-bottom: 3px solid #3B82F6;
+}
+
+.admin-header h2 {
+  color: #F1F5F9;
+}
+
+.admin-header .return-btn {
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  color: #F1F5F9;
+  border-radius: 8px;
+}
+
+.admin-header .return-btn:hover {
+  background: rgba(255,255,255,0.18);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+.admin-header .logout-btn {
+  background: #EF4444;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(239,68,68,0.3);
+}
+
+.admin-header .logout-btn:hover {
+  background: #DC2626;
+  box-shadow: 0 6px 16px rgba(239,68,68,0.4);
+}
+
+/* =========================================================
+   WRAPPER — BASE
+========================================================= */
+.modifier-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 110px 16px 40px;
+  box-sizing: border-box;
+}
+
+/* ── USER wrapper ── */
+.user-theme {
+  background-color: #F0F4F8;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(99, 179, 237, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(154, 117, 222, 0.15) 0%, transparent 50%);
+}
+
+/* ── ADMIN wrapper ── */
+.admin-theme {
+  background-color: #F1F5F9;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(15, 118, 110, 0.06) 0%, transparent 50%);
+}
+
+/* =========================================================
+   CARD — BASE
+========================================================= */
+.modifier-card {
+  background: #ffffff;
+  padding: 40px 36px;
+  width: 460px;
+  max-width: 96%;
+  animation: cardIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.user-theme .modifier-card {
+  border-radius: 24px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 20px 50px rgba(74, 144, 217, 0.12);
+  border: 1px solid rgba(74, 144, 217, 0.1);
+}
+
+.admin-theme .modifier-card {
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 10px 30px rgba(0,0,0,0.07);
+  border: 1px solid #E2E8F0;
+}
+
+/* =========================================================
+   LABELS
+========================================================= */
+.modifier-card label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.user-theme .modifier-card label { color: #4A5568; }
+.admin-theme .modifier-card label { color: #475569; }
+
+/* =========================================================
+   INPUTS
+========================================================= */
+.modifier-card input[type="text"],
+.modifier-card input[type="email"],
+.modifier-card input[type="password"],
+.modifier-card input[type="date"],
+.modifier-card input[type="number"],
+.modifier-card textarea,
+.modifier-card select {
+  width: 100%;
+  padding: 13px 16px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.modifier-card input::placeholder,
+.modifier-card textarea::placeholder { font-weight: 500; }
+
+/* USER inputs */
+.user-theme .modifier-card input,
+.user-theme .modifier-card textarea,
+.user-theme .modifier-card select {
+  border-radius: 12px;
+  border: 2px solid #E2E8F0;
+  color: #2D3748;
+  background: #F7FAFC;
+}
+
+.user-theme .modifier-card input::placeholder,
+.user-theme .modifier-card textarea::placeholder { color: #A0AEC0; }
+
+.user-theme .modifier-card input:focus,
+.user-theme .modifier-card textarea:focus,
+.user-theme .modifier-card select:focus {
+  border-color: #4A90D9;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(74, 144, 217, 0.12);
+  transform: translateY(-1px);
+}
+
+/* ADMIN inputs */
+.admin-theme .modifier-card input,
+.admin-theme .modifier-card textarea,
+.admin-theme .modifier-card select {
+  border-radius: 8px;
+  border: 1.5px solid #CBD5E1;
+  color: #1E293B;
+  background: #F8FAFC;
+}
+
+.admin-theme .modifier-card input::placeholder,
+.admin-theme .modifier-card textarea::placeholder { color: #94A3B8; }
+
+.admin-theme .modifier-card input:focus,
+.admin-theme .modifier-card textarea:focus,
+.admin-theme .modifier-card select:focus {
+  border-color: #3B82F6;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+
+.modifier-card textarea { min-height: 80px; resize: vertical; }
+
+.modifier-card select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234A5568' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 32px;
+}
+
+/* =========================================================
+   BOUTON SUBMIT
+========================================================= */
+.modifier-card button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  margin-top: 6px;
+  border: none;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+}
+
+.user-theme .modifier-card button[type="submit"] {
+  border-radius: 14px;
+  background: linear-gradient(135deg, #4A90D9, #7B68EE);
+  box-shadow: 0 8px 24px rgba(74, 144, 217, 0.35);
+}
+
+.user-theme .modifier-card button[type="submit"]:hover {
+  background: linear-gradient(135deg, #357ABD, #6A5ACD);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(74, 144, 217, 0.45);
+}
+
+.admin-theme .modifier-card button[type="submit"] {
+  border-radius: 10px;
+  background: #1E293B;
+  box-shadow: 0 4px 14px rgba(30,41,59,0.25);
+}
+
+.admin-theme .modifier-card button[type="submit"]:hover {
+  background: #0F172A;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(30,41,59,0.35);
+}
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+.message-success,
+.message-error {
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  padding: 12px 16px;
+  margin-top: 14px;
+}
+
+.user-theme .message-success {
+  color: #2E7D32;
+  background: #F1F8E9;
+  border-radius: 12px;
+  border-left: 4px solid #81C784;
+}
+
+.user-theme .message-error {
+  color: #C53030;
+  background: #FFF5F5;
+  border-radius: 12px;
+  border-left: 4px solid #FC8181;
+}
+
+.admin-theme .message-success {
+  color: #15803D;
+  background: #F0FDF4;
+  border-radius: 8px;
+  border-left: 4px solid #4ADE80;
+}
+
+.admin-theme .message-error {
+  color: #DC2626;
+  background: #FEF2F2;
+  border-radius: 8px;
+  border-left: 4px solid #EF4444;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 480px) {
+  .header { flex-direction: column; gap: 10px; padding: 12px 16px; }
+  .header h2 { font-size: 16px; }
+  .header-buttons { width: 100%; }
+  .return-btn, .logout-btn { flex: 1; font-size: 13px; }
+  .modifier-wrapper { padding-top: 130px; }
+  .modifier-card { padding: 28px 18px; }
+}
